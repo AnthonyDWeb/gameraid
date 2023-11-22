@@ -23,6 +23,7 @@
         "backgroundColor": "#ffffff"
       }
     },
+    "scheme": "mychat",
     "web": {
       "favicon": "./assets/favicon.png"
     }

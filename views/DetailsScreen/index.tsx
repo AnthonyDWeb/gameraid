@@ -14,6 +14,7 @@ export default function Index({ route, navigation }: DetailsProps) {
 				title="Go to Details ... again"
 				onPress={() =>
 					navigation.push("Details", {
+						name: "Jane Doe",
 						itemId: Math.floor(Math.random() * 100),
 						otherParam: "anything you want here",
 					})
