@@ -1,36 +1,11 @@
-import type { NativeStackScreenProps } from "@react-navigation/native-stack";
+import { NativeStackScreenProps as Props } from "@react-navigation/native-stack";
 
-export type RootStackParamList = {
-	Home: undefined;
-	Details: {
-		name?: string;
-		itemId?: number;
-		otherParam?: string;
-	};
-	homepage: undefined;
-	fightcalculator: undefined;
-	randomfight: undefined;
+export type RootStack = {
+	Homepage: undefined;
+	"Fight Calculator": undefined;
+	"Random Fight": undefined;
 };
 
-export type HomeProps = NativeStackScreenProps<RootStackParamList, "Home">;
-export type DetailsProps = NativeStackScreenProps<
-	RootStackParamList,
-	"Details"
->;
-export type HomepageProps = NativeStackScreenProps<
-	RootStackParamList,
-	"homepage"
->;
-export type FightCalculatorProps = NativeStackScreenProps<
-	RootStackParamList,
-	"fightcalculator"
->;
-export type RandomFightProps = NativeStackScreenProps<
-	RootStackParamList,
-	"randomfight"
->;
-
-// type StackNavigation = NativeStackScreenProps<RootStackParamList>;
-// export type StackNavigationProps = {
-// 	navigation: StackNavigation;
-// };
+export type HomepageProps = Props<RootStack, "Homepage">;
+export type FightCalculatorProps = Props<RootStack, "Fight Calculator">;
+export type RandomFightProps = Props<RootStack, "Random Fight">;
