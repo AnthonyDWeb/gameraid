@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.js": "/gameraid/static/js/main.8a494e8f.js",
-    "static/js/572.098fcff0.js": "/gameraid/static/js/572.098fcff0.js",
+    "main.js": "/gameraid/static/js/main.641f88a2.js",
+    "static/js/483.c445be8f.js": "/gameraid/static/js/483.c445be8f.js",
     "favicon.ico": "/gameraid/favicon.ico",
     "index.html": "/gameraid/index.html",
     "favicon-32.png": "/gameraid/favicon-32.png",
     "favicon-16.png": "/gameraid/favicon-16.png",
     "manifest.json": "/gameraid/manifest.json",
     "serve.json": "/gameraid/serve.json",
-    "main.8a494e8f.js.map": "/gameraid/static/js/main.8a494e8f.js.map",
-    "572.098fcff0.js.map": "/gameraid/static/js/572.098fcff0.js.map"
+    "main.641f88a2.js.map": "/gameraid/static/js/main.641f88a2.js.map",
+    "483.c445be8f.js.map": "/gameraid/static/js/483.c445be8f.js.map"
   },
   "entrypoints": [
-    "static/js/572.098fcff0.js",
-    "static/js/main.8a494e8f.js"
+    "static/js/483.c445be8f.js",
+    "static/js/main.641f88a2.js"
   ]
 }
