@@ -1,20 +1,22 @@
+// LIBRARY
+import * as Linking from "expo-linking";
 import { StatusBar } from "expo-status-bar";
-import { Button, StyleSheet, Text, View } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { RootStack } from "./utils/types/types";
-import FightCalculator from "./views/fightcalculator";
-import RandomFight from "./views/randomfight";
-
-import * as Linking from "expo-linking";
+// VIEWS
 import Index from "./views";
-const prefix = Linking.createURL("/");
-
-const Stack = createNativeStackNavigator<RootStack>();
-const Navigator = Stack.Navigator;
-const Screen = Stack.Screen;
+import RandomFight from "./views/randomfight";
+import FightCalculator from "./views/fightcalculator";
+// COMPONENTS
+import Loader from "./components/loader/";
+// OTHERS
+import { RootStack } from "./utils/types/types";
 
 export default function App() {
+	const Stack = createNativeStackNavigator<RootStack>();
+	const Navigator = Stack.Navigator;
+	const Screen = Stack.Screen;
+
 	const config = {
 		screens: {
 			Homepage: "gameraid/",
@@ -22,14 +24,22 @@ export default function App() {
 			"Random Fight": "gameraid/randomfight",
 		},
 	};
+	const prefix = Linking.createURL("/");
 	const linking = {
 		prefixes: [prefix, "https://anthonydweb.github.io/gameraid/"],
 		config,
 	};
-
+	
 	return (
-		<NavigationContainer linking={linking} fallback={<Text>Loading...</Text>}>
-			<Navigator>
+		<NavigationContainer linking={linking} fallback={<Loader />}>
+			<StatusBar translucent hidden />
+			<Navigator
+				screenOptions={{
+					headerTitleAlign: "center",
+					headerTitleStyle: { fontWeight: "bold" },
+					headerStyle: { backgroundColor: "gray" },
+				}}
+			>
 				<Screen name="Homepage" component={Index} />
 				<Screen name="Fight Calculator" component={FightCalculator} />
 				<Screen name="Random Fight" component={RandomFight} />
