@@ -5,8 +5,8 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 // VIEWS
 import Index from "./views";
-import RandomFight from "./views/randomfight";
 import FightCalculator from "./views/fightcalculator";
+import RandomFight from "./views/randomfight";
 // COMPONENTS
 import Loader from "./components/loader/";
 // OTHERS
@@ -29,7 +29,7 @@ export default function App() {
 		prefixes: [prefix, "https://anthonydweb.github.io/gameraid/"],
 		config,
 	};
-	
+
 	return (
 		<NavigationContainer linking={linking} fallback={<Loader />}>
 			<StatusBar translucent hidden />
@@ -38,6 +38,7 @@ export default function App() {
 					headerTitleAlign: "center",
 					headerTitleStyle: { fontWeight: "bold" },
 					headerStyle: { backgroundColor: "gray" },
+					headerTintColor: "white",
 				}}
 			>
 				<Screen name="Homepage" component={Index} />

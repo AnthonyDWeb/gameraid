@@ -3,14 +3,19 @@ export const styles = StyleSheet.create({
 	maincontainer: {
 		flex: 1,
 		alignItems: "center",
-        backgroundColor: "gray",
+		backgroundColor: "gray",
 		justifyContent: "space-around",
 	},
 	container: {
 		flex: 1,
-        padding: 15,
+		padding: 15,
 		alignItems: "center",
-        backgroundColor: "gray",
+		backgroundColor: "gray",
+	},
+    text: {
+		color: "white",
+		fontSize: 18,
+		marginHorizontal: 10,
 	},
 	button: {
 		color: "white",
@@ -22,25 +27,29 @@ export const styles = StyleSheet.create({
 		paddingHorizontal: 10,
 		fontSize: 20,
 		backgroundColor: "black",
-        textAlign: "center",
-        margin: 20
+		textAlign: "center",
+		margin: 20,
 	},
-    inputContainer: {
+	inputContainer: {
+		display: "flex",
+		alignItems: "center",
+		flexDirection: "row",
+		margin: 15,
+	},
+	inputValue: {
+		minWidth: 50,
+		color: "black",
+		borderRadius: 10,
+		textAlign: "center",
+		backgroundColor: "white",
+	},
+	resultContainer: {
         display: "flex",
         alignItems: "center",
-        flexDirection: "row",
-        margin: 15
-    },
-    inputLabel: {
-        color: "white",
-        fontSize: 18,
-        marginHorizontal: 10
-    },
-    inputValue: {
-        minWidth: 50,
-        color: "black",
-        borderRadius: 10,
-        textAlign: "center",
-        backgroundColor: "white",
-    }
+		width: "80%",
+        paddingTop: 30,
+		marginVertical: 20,
+		borderTopWidth: 1,
+		borderTopColor: "white",
+	},
 });
