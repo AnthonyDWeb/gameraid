@@ -5,19 +5,19 @@ import { styles } from "../../styles";
 type props = {
 	label: string;
 	datakey: string;
+	value: number;
 	action: (key: string, value: number) => void;
 };
 
-export const LabelNumberInput = ({ label, datakey, action }: props) => {
+export const LabelNumberInput = ({ label, value, datakey, action }: props) => {
 	return (
 		<View style={styles.inputContainer}>
 			<TextInput style={styles.text} value={label} editable={false} />
 			<TextInput
 				style={styles.inputValue}
-				placeholder="0"
-				placeholderTextColor={"black"}
+				defaultValue={value.toString()}
 				keyboardType="numeric"
-				onChangeText={(e) => action(datakey, parseInt(e))}
+				onChangeText={(e) => action(datakey, e ? parseInt(e) : 0)}
 			/>
 		</View>
 	);

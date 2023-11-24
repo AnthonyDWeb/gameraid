@@ -8,13 +8,15 @@ import { styles } from "../../styles";
 // COMPONENTS
 import PressableButton from "../../components/button/pressable_button";
 import { LabelNumberInput } from "../../components/input/label_number_input";
+import { getLabel } from "../../utils/others/transform_data";
+import { useDevice } from "../../utils/hooks/useDevice";
 // OTHERS
 // Type
 type dataprops = {
 	goalpoint: number;
+	life: number;
 	playerpoint: number;
 	fightpoint: number;
-	life: number;
 };
 type resultProps = {
 	goalsuccess: boolean;
@@ -25,20 +27,46 @@ type resultProps = {
 	maxpoint?: number;
 };
 
+const initData: dataprops = {
+	goalpoint: 0,
+	playerpoint: 0,
+	fightpoint: 0,
+	life: 0,
+};
+const initResult: resultProps = {
+	goalsuccess: false,
+	playerpoint: 0,
+	numberfight: 0,
+	restlife: 0,
+};
 export default function Index() {
+	const { nativeDevice } = useDevice();
 	const [show, setShow] = useState<boolean>(false);
-	const [data, setData] = useState<dataprops>({
-		goalpoint: 0,
-		playerpoint: 0,
-		fightpoint: 0,
-		life: 0,
-	});
-	const [result, setResult] = useState<resultProps>({
-		goalsuccess: false,
-		playerpoint: 0,
-		numberfight: 0,
-		restlife: 0,
-	});
+	const [data, setData] = useState<dataprops>(initData);
+	const [result, setResult] = useState<resultProps>(initResult);
+
+	const updatedata = (key: string, value: number) => {
+		setData({ ...data, [key]: value });
+	};
+
+	const handleResult = () => {
+		const error = checkError();
+		if (error) {
+			const errorField = error.map((e) => `\n\- ${getLabel(e)}`);
+			const errorMessage = `les champs suivants n'ont pas de valeur:\n\ ${errorField}`;
+			alert(errorMessage);
+		} else {
+			getResult();
+		}
+	};
+
+	const checkError = () => {
+		const error: string[] = [];
+		const datavalues = Object.values(data);
+		const datakeys = Object.keys(data);
+		datavalues.forEach((v, i) => Number.isNaN(v) && error.push(datakeys[i]));
+		return error.length === 0 ? false : error;
+	};
 
 	const getResult = () => {
 		const newResult = cloneDeep(result);
@@ -66,32 +94,44 @@ export default function Index() {
 		setResult(newResult);
 	};
 
-	const updatedata = (key: string, value: number) =>
-		setData({ ...data, [key]: value });
+	const reset = () => {
+		setShow(false);
+		setData(initData);
+		setResult(initResult);
+	};
 
 	return (
 		<View style={styles.container}>
-			<LabelNumberInput
-				label="Points du Joueur"
-				datakey="playerpoint"
-				action={updatedata}
-			/>
-			<LabelNumberInput
-				label="Nombre de vie(s)"
-				datakey="life"
-				action={updatedata}
-			/>
-			<LabelNumberInput
-				label="Point(s) par combat"
-				datakey="fightpoint"
-				action={updatedata}
-			/>
-			<LabelNumberInput
-				label="Objectif de points"
-				datakey="goalpoint"
-				action={updatedata}
-			/>
-			<PressableButton label={"Valider"} action={() => getResult()} />
+			<View style={nativeDevice === "desktop" && styles.rowContainer}>
+				<LabelNumberInput
+					label="Objectif de points"
+					datakey="goalpoint"
+					value={data.goalpoint}
+					action={updatedata}
+				/>
+				<LabelNumberInput
+					label="Nombre de vie(s)"
+					datakey="life"
+					value={data.life}
+					action={updatedata}
+				/>
+				<LabelNumberInput
+					label="Points du Joueur"
+					datakey="playerpoint"
+					value={data.playerpoint}
+					action={updatedata}
+				/>
+				<LabelNumberInput
+					label="Point(s) par combat"
+					datakey="fightpoint"
+					value={data.fightpoint}
+					action={updatedata}
+				/>
+			</View>
+			<View style={styles.buttonContainer}>
+				<PressableButton label={"Valider"} action={handleResult} />
+				{show && <PressableButton label={"Réinitialiser"} action={reset} />}
+			</View>
 			{show && (
 				<View style={styles.resultContainer}>
 					<Text style={styles.text}>
