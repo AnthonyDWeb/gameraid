@@ -2,6 +2,7 @@ import { NativeStackScreenProps as Props } from "@react-navigation/native-stack"
 
 export type RootStack = {
 	Homepage: undefined;
+	privacy: undefined;
 	"Fight Calculator": undefined;
 	"Random Fight": undefined;
 };

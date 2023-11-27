@@ -8,6 +8,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Index from "./views";
 import FightCalculator from "./views/fightcalculator";
 import RandomFight from "./views/randomfight";
+import Privacy from "./views/privacy";
 // COMPONENTS
 import Loader from "./components/loader/";
 // OTHERS
@@ -23,6 +24,7 @@ export default function App() {
 
 	const config = {
 		screens: {
+			privacy: "gameraid/privacy",
 			Homepage: "gameraid/",
 			"Fight Calculator": "gameraid/fightcalculator",
 			"Random Fight": "gameraid/randomfight",
@@ -68,6 +70,7 @@ export default function App() {
 				<Screen name="Homepage" component={Index} options={{ headerShown: false }} />
 				<Screen name="Fight Calculator" component={FightCalculator} />
 				<Screen name="Random Fight" component={RandomFight} />
+				<Screen name="privacy" component={Privacy} />
 			</Navigator>
 		</NavigationContainer>
 	) : null;
