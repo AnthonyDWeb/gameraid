@@ -1,5 +1,5 @@
 export const randomNumber = (max: number) =>
-		Math.floor(Math.random() * (max - 1 + 1) + 1);
+	Math.floor(Math.random() * (max - 1 + 1) + 1);
 
 export const getLabel = (key: string) => {
 	let label;
@@ -33,4 +33,9 @@ export const getLabel = (key: string) => {
 			break;
 	}
 	return label;
+};
+
+export const isOnlyNumber = (v: string) => {
+	const reg = new RegExp("^[0-9]+$");
+	return reg.test(v);
 };

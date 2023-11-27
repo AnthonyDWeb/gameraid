@@ -8,7 +8,7 @@ import { styles } from "../../styles";
 // COMPONENTS
 import PressableButton from "../../components/button/pressable_button";
 import { LabelNumberInput } from "../../components/input/label_number_input";
-import { getLabel } from "../../utils/others/transform_data";
+import { getLabel } from "../../utils/others";
 import { useDevice } from "../../utils/hooks/useDevice";
 // OTHERS
 // Type

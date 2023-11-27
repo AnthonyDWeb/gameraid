@@ -1,6 +1,7 @@
 import { StyleSheet, TextInput, View } from "react-native";
 import React from "react";
 import { styles } from "../../styles";
+import { isOnlyNumber } from "../../utils/others";
 
 type props = {
 	label: string;
@@ -10,14 +11,21 @@ type props = {
 };
 
 export const LabelNumberInput = ({ label, value, datakey, action }: props) => {
+
+	const handleValue = (value: any) => {
+		const isNumber = isOnlyNumber(value);
+		(isNumber || value.length === 0) && action(datakey, parseInt(value));
+	}
+
 	return (
 		<View style={styles.inputContainer}>
 			<TextInput style={styles.text} value={label} editable={false} />
 			<TextInput
 				style={styles.inputValue}
-				defaultValue={value.toString()}
+				value={value ? value.toString() : "0"}
 				keyboardType="numeric"
-				onChangeText={(e) => action(datakey, e ? parseInt(e) : 0)}
+				onChangeText={(e) => handleValue(e)}
+				
 			/>
 		</View>
 	);

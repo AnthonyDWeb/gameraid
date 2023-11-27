@@ -8,7 +8,7 @@ import { styles } from "../../styles";
 // COMPONENTS
 import PressableButton from "../../components/button/pressable_button";
 import { LabelNumberInput } from "../../components/input/label_number_input";
-import { getLabel, randomNumber } from "../../utils/others/transform_data";
+import { getLabel, randomNumber } from "../../utils/others";
 import { getDevice, useDevice } from "../../utils/hooks/useDevice";
 // OTHERS
 // Type
@@ -48,8 +48,6 @@ export default function Index() {
 	};
 
 	const handleResult = async () => {
-		console.log("inside");
-		console.log("nativeDevice", nativeDevice);
 		const error = checkError();
 		if (error) {
 			const errorField = error.map((e) => `\n\- ${getLabel(e)}`);
@@ -133,7 +131,6 @@ export default function Index() {
 				<ScrollView
 					style={styles.scrollsize}
 					contentContainerStyle={styles.scrollStyle}
-					
 				>
 					{result.map((r) => (
 						<View key={r.player} style={styles.playerContainer}>
@@ -142,11 +139,19 @@ export default function Index() {
 								r.data.map((d) => {
 									const dKey = `${d.characters}${d.columns}${d.lines}`;
 									return (
-										<View key={dKey} style={[styles.rowContainer,{justifyContent: "space-between", width: "100%"}]}>
+										<View
+											key={dKey}
+											style={[
+												styles.rowContainer,
+												{ justifyContent: "space-between", width: "100%" },
+											]}
+										>
 											<Text style={styles.dataline}>
-												Personnage {d.characters}: 
+												Personnage {d.characters}:
 											</Text>
-											<Text style={styles.dataline}>C:{d.columns} / L:{d.lines}</Text>
+											<Text style={styles.dataline}>
+												C:{d.columns} / L:{d.lines}
+											</Text>
 										</View>
 									);
 								})}
