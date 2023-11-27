@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.js": "/gameraid/static/js/main.630c0d9d.js",
-    "static/js/9.9573274b.js": "/gameraid/static/js/9.9573274b.js",
+    "main.js": "/gameraid/static/js/main.9f1f6638.js",
+    "static/js/9.65a7eb26.js": "/gameraid/static/js/9.65a7eb26.js",
     "static/media/StickNoBills.ttf": "/gameraid/static/media/StickNoBills.18764ebd7e9269c46530.ttf",
     "static/media/IMF.ttf": "/gameraid/static/media/IMF.8e2b617ab67e81b80324.ttf",
     "static/media/MeaCulpa-Regular.ttf": "/gameraid/static/media/MeaCulpa-Regular.7e1310e26aabf846731b.ttf",
@@ -17,11 +17,11 @@
     "favicon-16.png": "/gameraid/favicon-16.png",
     "manifest.json": "/gameraid/manifest.json",
     "serve.json": "/gameraid/serve.json",
-    "main.630c0d9d.js.map": "/gameraid/static/js/main.630c0d9d.js.map",
-    "9.9573274b.js.map": "/gameraid/static/js/9.9573274b.js.map"
+    "main.9f1f6638.js.map": "/gameraid/static/js/main.9f1f6638.js.map",
+    "9.65a7eb26.js.map": "/gameraid/static/js/9.65a7eb26.js.map"
   },
   "entrypoints": [
-    "static/js/9.9573274b.js",
-    "static/js/main.630c0d9d.js"
+    "static/js/9.65a7eb26.js",
+    "static/js/main.9f1f6638.js"
   ]
 }
