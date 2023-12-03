@@ -5,7 +5,7 @@ import { usePrivacy } from "../../contexts/page";
 
 export default function PrivacyModal() {
 	const { modalVisible, validPrivacy } = usePrivacy();
-    const url = "https://anthonydweb.github.io/gameraid/";
+    const url = "https://anthonydweb.github.io/arkhanya.privacy/gameraid";
 	const Link = ({label,direction}: { direction: string; label: string }) => {
 		return (
 			<Text style={styles.span} onPress={() => Linking.openURL(direction)}>
@@ -19,11 +19,10 @@ export default function PrivacyModal() {
 			<View style={styles.modalContainer}>
 				<View style={{ width: "100%" }}>
 					<Text style={styles.modalTitle}>
-						Conditions générales et Politique de confidentialité
+						Politique de confidentialité
 					</Text>
 					<Text style={styles.modalText}>
-						En cliquant sur Continuer, vous accepter nos{" "}
-						<Link label="Conditions générales" direction={url} /> et{" "}
+						En cliquant sur Continuer, vous accepter notre{" "}
 						<Link label="Politique de confidentialité" direction={url} />.
 					</Text>
 				</View>
