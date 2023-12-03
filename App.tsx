@@ -1,19 +1,22 @@
 // LIBRARY
+import { useEffect, useState } from "react";
+import {Text} from 'react-native';
 import * as Linking from "expo-linking";
 import { StatusBar } from "expo-status-bar";
 import { loadAsync } from "expo-font";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+// CONTEXTS
+import { PrivacyProvider } from "./contexts/page";
 // VIEWS
 import Index from "./views";
 import FightCalculator from "./views/fightcalculator";
 import RandomFight from "./views/randomfight";
-import Privacy from "./views/privacy";
 // COMPONENTS
 import Loader from "./components/loader/";
+import PrivacyModal from "./components/modal";
 // OTHERS
 import { RootStack } from "./utils/types/types";
-import { useEffect, useState } from "react";
 
 export default function App() {
 	const [fontLoad, setFontLoad] = useState(false);
@@ -59,19 +62,20 @@ export default function App() {
 
 	return fontLoad ? (
 		<NavigationContainer linking={linking} fallback={<Loader />}>
-			<StatusBar translucent hidden />
-			<Navigator
-				screenOptions={{
-					headerTitleAlign: "center",
-					headerTitleStyle: { fontFamily: "BlackOps", fontSize: 30 },
-					headerStyle: { backgroundColor: "gray" },
-				}}
-			>
-				<Screen name="Homepage" component={Index} options={{ headerShown: false }} />
-				<Screen name="Fight Calculator" component={FightCalculator} />
-				<Screen name="Random Fight" component={RandomFight} />
-				<Screen name="privacy" component={Privacy} />
-			</Navigator>
+			<PrivacyProvider>
+				<StatusBar translucent hidden />
+				<Navigator
+					screenOptions={{
+						headerTitleAlign: "center",
+						headerTitleStyle: { fontFamily: "BlackOps", fontSize: 30 },
+						headerStyle: { backgroundColor: "dimgray" },
+					}}
+				>
+					<Screen name="Homepage" component={Index} options={{ headerShown: false }} />
+					<Screen name="Fight Calculator" component={FightCalculator} />
+					<Screen name="Random Fight" component={RandomFight} />
+				</Navigator>
+			</PrivacyProvider>
 		</NavigationContainer>
 	) : null;
 }

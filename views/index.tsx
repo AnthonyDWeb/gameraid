@@ -1,5 +1,5 @@
 // LIBRARY
-import React from "react";
+import React, { useEffect } from "react";
 import { View } from "react-native";
 // STYLE
 import { styles } from "../styles";
@@ -8,13 +8,23 @@ import { styles } from "../styles";
 import PressableButton from "../components/button/pressable_button";
 // OTHERS
 import { HomepageProps } from "../utils/types/types";
+import { usePrivacy } from "../contexts/page";
+import PrivacyModal from "../components/modal";
 
-export default function Index({ navigation }: HomepageProps) {
+export default function Index() {
+	const { privacyChecked, getScreen } = usePrivacy();
+
+	useEffect(() => {
+		console.log("inside homepage")
+	}, [])
+
+	const handle = (page: any) => privacyChecked && getScreen(page);
 
 	return (
 		<View style={styles.maincontainer}>
-			<PressableButton label={"Random Fight"} action={()=> navigation.navigate("Random Fight")}/>
-			<PressableButton label={"Fight Calculator"} action={()=> navigation.navigate("Fight Calculator")}/>
+			<PrivacyModal />
+			<PressableButton label={"Random Fight"} action={() => handle("Random Fight")} />
+			<PressableButton label={"Fight Calculator"} action={() => handle("Fight Calculator")} />
 		</View>
 	);
 }

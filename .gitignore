@@ -8,7 +8,8 @@ node_modules/
 dist/
 web-build/
 .vscode
-
+config
+note.txt
 # Native
 *.orig.*
 *.jks

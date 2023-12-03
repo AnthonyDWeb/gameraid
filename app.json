@@ -22,7 +22,8 @@
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "package": "com.arkhanya.gameraid"
+      "package": "com.arkhanya.gameraid",
+      "versionCode": 2
     },
     "scheme": "mychat",
     "web": {

@@ -92,4 +92,52 @@ export const styles = StyleSheet.create({
 		fontFamily: font,
 	},
 	dataline: { color: "white", marginHorizontal: 5,marginBottom: 15, fontFamily: font },
+
+	// MODAL STYLE
+
+	modalContainer: {
+		position: "absolute",
+		width: "90%",
+		height: "80%",
+		top: "10%",
+		left: "5%",
+		backgroundColor: "white",
+		justifyContent: "space-between",
+		borderRadius: 20,
+		paddingVertical: 35,
+		paddingHorizontal: 25,
+		shadowColor: "#000",
+		shadowOffset: {
+			width: 0,
+			height: 2,
+		},
+		shadowOpacity: 5,
+		shadowRadius: 4,
+		elevation: 5,
+	},
+	buttonClose: {
+		marginTop: 10,
+		padding: 10,
+		elevation: 2,
+		borderRadius: 20,
+		backgroundColor: "#2196F3",
+	},
+	buttonCloseText: {
+		color: "white",
+		fontWeight: "bold",
+		textAlign: "center",
+	},
+	modalTitle: {
+		textAlign: "center",
+		fontWeight: "bold",
+		fontSize: 20,
+		marginBottom: 25,
+	},
+	modalText: {
+		marginBottom: 15,
+		textAlign: "justify",
+	},
+	span: {
+		color: "blue",
+	},
 });
