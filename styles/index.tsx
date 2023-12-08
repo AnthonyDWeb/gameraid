@@ -3,14 +3,35 @@ const font = "BlackOps";
 export const styles = StyleSheet.create({
 	maincontainer: {
 		flex: 1,
-		alignItems: "center",
 		backgroundColor: "gray",
-		justifyContent: "center",
+		alignItems: "center",
 	},
 	rowContainer: {
 		display: "flex",
 		flexDirection: "row",
 		alignItems: "center",
+	},
+	main: {
+		flex: 1,
+		justifyContent: "center",
+	},
+	footer: {
+		width: "100%",
+		paddingTop: 5,
+		paddingBottom: 10,
+		display: "flex",
+		flexDirection: "row",
+		alignItems: "center",
+		flexWrap: "wrap",
+		justifyContent:  "space-evenly",
+		borderTopWidth: 1,
+		borderTopColor: "rgba(255,255,255,0.3)",
+	},
+	footerLink: {
+		color: "white",
+		fontWeight: "600",
+		marginTop: 5,
+		marginHorizontal: 5,
 	},
 	container: {
 		flex: 1,

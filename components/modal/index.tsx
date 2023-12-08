@@ -5,7 +5,7 @@ import { usePrivacy } from "../../contexts/page";
 
 export default function PrivacyModal() {
 	const { modalVisible, validPrivacy } = usePrivacy();
-    const url = "https://anthonydweb.github.io/arkhanya.privacy/gameraid";
+    const url = "https://anthonydweb.github.io/arkhanya.privacy.gameraid";
 	const Link = ({label,direction}: { direction: string; label: string }) => {
 		return (
 			<Text style={styles.span} onPress={() => Linking.openURL(direction)}>

@@ -2,7 +2,7 @@
   "expo": {
     "name": "Gamer Aid",
     "slug": "gameraid",
-    "version": "1.0.0",
+    "version": "1.0.8",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
@@ -23,7 +23,7 @@
         "backgroundColor": "#ffffff"
       },
       "package": "com.arkhanya.gameraid",
-      "versionCode": 3
+      "versionCode": 8
     },
     "scheme": "mychat",
     "web": {
