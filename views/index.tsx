@@ -8,17 +8,19 @@ import { styles } from "../styles";
 import PressableButton from "../components/button/pressable_button";
 // OTHERS
 import { HomepageProps } from "../utils/types/types";
-import { usePrivacy } from "../contexts/page";
+import { usePrivacy } from "../contexts/privacy";
 import PrivacyModal from "../components/modal";
+import { useNavigation } from "@react-navigation/native";
 
 export default function Index() {
-	const { privacyChecked, getScreen } = usePrivacy();
+	const { privacyChecked, permission } = usePrivacy();
+	const navigation = useNavigation<any>();
 	const url = "https://anthonydweb.github.io/arkhanya.privacy.gameraid";
-	const handle = (page: any) => privacyChecked && getScreen(page);
+	const handle = (page: any) => privacyChecked && navigation.navigate(page);
 
 	return (
 		<View style={styles.maincontainer}>
-			<PrivacyModal />
+			{!permission && <PrivacyModal />}
 			<View style={styles.main}>
 				<PressableButton
 					label={"Random Fight"}

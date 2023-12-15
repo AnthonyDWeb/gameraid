@@ -1,13 +1,13 @@
 // LIBRARY
 import { useEffect, useState } from "react";
-import {Text} from 'react-native';
+import { Text } from "react-native";
 import * as Linking from "expo-linking";
 import { StatusBar } from "expo-status-bar";
 import { loadAsync } from "expo-font";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 // CONTEXTS
-import { PrivacyProvider } from "./contexts/page";
+import { PrivacyProvider } from "./contexts/privacy";
 // VIEWS
 import Index from "./views";
 import FightCalculator from "./views/fightcalculator";
@@ -71,7 +71,11 @@ export default function App() {
 						headerStyle: { backgroundColor: "dimgray" },
 					}}
 				>
-					<Screen name="Homepage" component={Index} options={{ headerShown: false }} />
+					<Screen
+						name="Homepage"
+						component={Index}
+						options={{ headerShown: false }}
+					/>
 					<Screen name="Fight Calculator" component={FightCalculator} />
 					<Screen name="Random Fight" component={RandomFight} />
 				</Navigator>
